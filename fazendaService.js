@@ -29,7 +29,19 @@ async function findFazendaId(idFazenda) {
   }
 }
 
+//Deletar Fazenda pelo ID
+async function deleteFazenda(idFazenda) {
+  try {
+    const connection = await db.connect();
+    await connection.query('DELETE FROM GadoSeguro.Fazenda WHERE idFazenda=?;', idFazenda);
+    connection.end();
+  } catch (error) {
+    console.error("Erro ao deletar o objeto fazenda:", error);
+  }
+}
+
 module.exports = {
   addFazenda: addFazenda,
-  findFazendaId: findFazendaId
+  findFazendaId: findFazendaId,
+  deleteFazenda: deleteFazenda
 }

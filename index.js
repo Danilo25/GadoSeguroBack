@@ -1,8 +1,5 @@
-
 const fazendaS = require("./fazendaService");
 const Fazenda = require("./Fazenda");
-
-console.log("Começou");
 
 let fazendaTemp = new Fazenda();
 
@@ -15,6 +12,7 @@ fazendaTemp.setComplemento("Duas casas");
 fazendaTemp.setNumeros(58);
 
 fazendaS.addFazenda(fazendaTemp);
+
 fazendaS.findFazendaId(1)
   .then((fazenda) => {
     console.log(fazenda);
@@ -22,3 +20,4 @@ fazendaS.findFazendaId(1)
   .catch((error) => {
     console.error("Erro ao buscar o objeto fazenda:", error);
   });
+fazendaS.deleteFazenda(1);
