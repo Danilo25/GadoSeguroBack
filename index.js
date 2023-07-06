@@ -1,7 +1,6 @@
-const fazendaS = require("./fazendaService");
-const Fazenda = require("./Fazenda");
+const fazendaS = require("./src/services/fazendaService");
 
-let fazendaTemp = new Fazenda();
+let fazendaTemp;
 
 fazendaTemp.setId(1);
 fazendaTemp.setNome("Teste");
