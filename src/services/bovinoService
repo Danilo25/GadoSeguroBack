@@ -16,9 +16,11 @@ class BovinoService {
         bovinoTemp.getSexo(),
         bovinoTemp.getDataNascimento(),
         bovinoTemp.getChifre(),
+        bovinoTemp.getNome(),
         bovinoTemp.getPeso(),
         bovinoTemp.getCor()
       ];
+      console.log(values);
       await connection.execute(query, values);
       console.log("Bovino Adicionado");    
     } catch(error){
