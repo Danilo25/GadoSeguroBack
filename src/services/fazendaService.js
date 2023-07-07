@@ -6,7 +6,10 @@ class FazendaService {
 async  addFazenda(fazendaTemp) {
   try {
     const connection = await dbConnection();
-    const query = `INSERT INTO GadoSeguro.Fazenda (idFazenda, nome, sitio, cidade, cep, complemento, numero) VALUES (?,?,?,?,?,?,?)`;
+    const query = `
+    INSERT INTO GadoSeguro.Fazenda (idFazenda, nome, sitio, cidade, cep, complemento, numero) 
+    VALUES (?,?,?,?,?,?,?)
+    `;
     const values = [
       fazendaTemp.getId(), 
       fazendaTemp.getNome(), 
@@ -72,7 +75,7 @@ async updateFazenda(idFazenda, fazendaTemp){
 //Deletar Fazenda pelo ID
 async  deleteFazenda(idFazenda) {
   try {
-    const connection = await dbConnection.connect();
+    const connection = await dbConnection();
     await connection.query('DELETE FROM GadoSeguro.Fazenda WHERE idFazenda=?;', idFazenda);
   } catch (error) {
     console.error("Erro ao deletar o objeto fazenda:", error);

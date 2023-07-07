@@ -4,45 +4,39 @@ const Fazenda = require("./src/entity/Fazenda");
 const bovinoS = require("./src/services/bovinoService");
 const Bovino = require("./src/entity/Bovino");
 
-/*let fazendaTemp = new Fazenda();
+const vacinaS = require("./src/services/vacinaServices");
+const Vacina = require("./src/entity/Vacina");
 
-fazendaTemp.setId(1);
-fazendaTemp.setNome("Feliz");
-fazendaTemp.setSitio("Pica-Pau");
-fazendaTemp.setCidade("Montana");
-fazendaTemp.setCep("555-42");
-fazendaTemp.setComplemento("Duas casas");
-fazendaTemp.setNumeros(58);
+const doseS = require("./src/services/doseService");
+const Dose = require("./src/entity/Dose");
 
-//fazendaS.addFazenda(fazendaTemp);
 
-fazendaTemp.setNome("Triste");
-fazendaTemp.setSitio("Amarelo");
-fazendaTemp.setCidade("Montana");
-fazendaTemp.setCep("555-42");
-fazendaTemp.setComplemento("Uma casa");
-fazendaTemp.setNumeros(55);
+let vacinaTemp = new Vacina();
 
-fazendaS.updateFazenda(1, fazendaTemp);
+vacinaTemp.setNome("FSG-124");
+vacinaTemp.setInfo("Vacina para Sarampo");
+vacinaTemp.setFabricante("Instituto Nacional de Proteção e Saúde");
 
-fazendaS.findFazendaId(1)
-  .then((fazenda) => {
-    console.log(fazenda);
+//vacinaS.addVacina(vacinaTemp);
+
+console.log(vacinaTemp.getFabricante());
+let vacinaTemp2 = new Vacina();
+console.log(vacinaTemp2.getNome());
+vacinaS.getVacinaNome("FSG-124")
+  .then((vacina) => {
+    vacinaTemp2 = vacina;
+
+    console.log(vacinaTemp2.getNome());
+
+    let doseTemp = new Dose();
+    doseTemp.setIdDose(1);
+    doseTemp.setNomeVacina(vacinaTemp2.getNome());
+    doseTemp.setLote("12-S");
+    doseTemp.setInfo(vacinaTemp2.getInfo());
+    doseTemp.setDataAplicada("2023-05-06");
+
+    doseS.addDose(doseTemp);
   })
   .catch((error) => {
-    console.error("Erro ao buscar o objeto fazenda:", error);
-  });*/
-  let teste1 = new Bovino();
-  teste1.setId(2);
-  teste1.setFazendaIdFazenda(1);
-  teste1.setVacaIdVaca(null);
-  teste1.setReprodutor(false);
-  teste1.setSexo("Masc");
-  teste1.setDataNascimento("2001-02-12");
-  teste1.setChifre(true);
-  teste1.setNome("Biel");
-  teste1.setPeso(250.65);
-  teste1.setCor("Marrom");
-  
-  bovinoS.addBovino(teste1);
-//fazendaS.deleteFazenda(1);
+    console.log(error);
+  })
